@@ -1,0 +1,297 @@
+:root {
+
+  --softOrange: hsl(35, 77%, 62%);
+  --softRed: hsl(5, 85%, 63%);
+  --off-white: hsl(36, 100%, 99%);
+  --grayishBlue: hsl(233, 8%, 79%);
+  --DarkGrayishBlue: hsl(236, 13%, 42%);
+  --veryDarkBlue: hsl(240, 100%, 5%);
+}
+
+* {
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  margin: 20px auto 30px auto;
+  width: 90%;
+  height: 90vh;
+  display: grid;
+  grid-template-rows: 5% 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  grid-template-areas:
+    "hd hd hd"
+    "mainImage mainImage news"
+    "brightFuture diveIn  news"
+    "news1 news2 news3";
+
+}
+
+.container>nav {
+  display: flex;
+  justify-content: space-between;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-area: hd;
+}
+
+
+
+.header {
+  grid-area: hd;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 50px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  list-style-type: none;
+  color: var(--grayishBlue);
+}
+
+.logo {
+  width: 50px;
+  height: 25px;
+}
+
+
+#close {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+
+.brightFuture {
+  grid-area: brightFuture;
+}
+
+
+.mainImage {
+  height: 100%;
+  width: 100%;
+  grid-area: mainImage;
+}
+
+.mainImage>img {
+  height: 100%;
+  width: 100%;
+}
+
+.news>* {
+  width: 80%;
+  margin: auto;
+}
+
+.news {
+  grid-area: news;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--veryDarkBlue);
+  width: 100%;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.news>h2 {
+  font-size: 1.5rem;
+  color: var(--softOrange);
+}
+
+.news>h3 {
+  color: var(--off-white);
+  font-size: 1rem;
+}
+
+.news>p {
+  color: var(--grayishBlue);
+}
+
+hr.line {
+  width: 80%;
+  border-color: var(--grayishBlue);
+}
+
+.brightFuture>h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+
+.diveIn {
+  grid-area: diveIn;
+}
+
+.diveIn p {
+  color: var(--DarkGrayishBlue);
+  text-align: left;
+}
+
+.btn {
+  background-color: var(--softRed);
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+.news1, .news2, .news3 {
+  display: flex;
+  width: 100%;
+
+}
+
+.news1 {
+  grid-area: news1;
+}
+
+.news2 {
+  grid-area: news2;
+}
+
+.news3 {
+  grid-area: news3;
+}
+
+.newsText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 70%;
+  height: 100%;
+  margin-left: 15px;
+}
+
+.newsText p {
+  margin-top: 0;
+  color: var(--DarkGrayishBlue);
+}
+
+.newsText h2 {
+
+
+  color: var(--softRed);
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
+
+.newsText h3 {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+
+.newsImage {
+  width: 30%;
+  margin: 15px auto;
+
+}
+
+.newsImage>img {
+  height: 100%;
+  width: 100%;
+}
+
+.newsText h3:hover {
+  color: var(--softRed);
+}
+
+.btn:hover {
+  background-color: var(--veryDarkBlue);
+  color: var(--off-white);
+}
+
+ul li:hover {
+  color: var(--softRed);
+}
+
+.news h3:hover {
+  color: var(--softOrange);
+}
+
+/* .open {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: auto;
+  background-color: transparent;
+  padding: 0;
+  z-index: auto;
+} */
+
+.header nav.open {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60vw;
+  background-color: white;
+  padding: 1.25rem;
+  z-index: 99999999999;
+}
+
+.header nav #close.open {
+  display: block;
+  float: right;
+}
+
+.header nav ul.open {
+  margin-top: 60px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 0;
+  color: var(--veryDarkBlue)
+}
+
+
+
+
+
+@media screen and (max-width: 450px) {
+  .container {
+
+    margin: 20px auto 30px auto;
+    width: 90%;
+    gap: 4px;
+    display: grid;
+    grid-template-rows: 5% repeat(9, auto);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hd"
+      "mainImage"
+      "mainImage"
+      "brightFuture"
+      "diveIn"
+      "news"
+      "news"
+      "news1"
+      "news2"
+      "news3";
+  }
+
+  ul {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+}
